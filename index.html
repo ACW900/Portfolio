@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alex Wiemer · Portfolio</title>
+<meta name="description" content="Alex Wiemer, NJIT IT student. I build apps people use, and ship them with automated pipelines.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="brand" href="#top">Alex Wiemer</a>
+    <nav aria-label="Main">
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero wrap">
+    <p class="eyebrow">NJIT · Information Technology (Web Applications)</p>
+    <h1>I build apps people use, <br>and ship them with automated pipelines.</h1>
+    <p class="lede">IT student seeking <strong>Summer 2027 internships</strong> in AI automation, DevOps and web engineering. Every project below links to its code or a live site.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="#projects">View work ↓</a>
+      <a class="btn" href="https://github.com/ACW900" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </section>
+
+  <section id="projects" class="wrap">
+    <div class="section-head">
+      <h2>Projects</h2>
+      <p>Newest first.</p>
+    </div>
+
+    <div class="grid">
+
+      <!-- 1. Save Point -->
+      <article class="card">
+        <div class="card-top tint-blue">
+          <span class="date">Nov 2026</span>
+          <h3>Save Point</h3>
+          <p class="sub">Web app with accounts and role-based access</p>
+        </div>
+        <div class="card-body">
+          <dl class="meta">
+            <dt>For</dt><dd>Players keeping a list of their saved games</dd>
+            <dt>Ships via</dt><dd>Issue → branch → pull request, with CI on every merge</dd>
+          </dl>
+          <ul>
+            <li>Python (FastAPI) app with signup, login, logout and a private dashboard backed by SQLite.</li>
+            <li>Member/admin permissions enforced on the server, not just in the UI, with automated tests for allowed and denied requests.</li>
+            <li>Each feature planned in a SPEC file and delivered through its own reviewed pull request.</li>
+          </ul>
+          <p class="tags"><span>Python</span><span>FastAPI</span><span>SQLite</span><span>Testing</span><span>CI</span></p>
+          <div class="card-actions">
+            <a class="btn btn-small" href="https://github.com/ACW900/IS373_APPSTUDIO" target="_blank" rel="noopener">Code</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 2. CI/CD pipeline -->
+      <article class="card">
+        <div class="card-top tint-green">
+          <span class="date">Oct – Nov 2026</span>
+          <h3>Automated CI/CD Pipeline</h3>
+          <p class="sub">QA and production environments with rollback</p>
+        </div>
+        <div class="card-body">
+          <dl class="meta">
+            <dt>For</dt><dd>Shipping a site safely, without manual deploys</dd>
+            <dt>Ships via</dt><dd>GitHub Actions → GHCR → SSH deploy → Caddy (HTTPS)</dd>
+          </dl>
+          <ul>
+            <li>Every push is validated, built into a Docker image, smoke-tested and published to GitHub Container Registry, tagged by commit.</li>
+            <li>The <code>qa</code> branch deploys to QA; merging to <code>main</code> deploys to production, each in its own container.</li>
+            <li>A health check rolls back automatically, and a final check confirms the live site is running the exact commit just deployed.</li>
+          </ul>
+          <p class="tags"><span>GitHub Actions</span><span>Docker</span><span>Caddy</span><span>DigitalOcean</span><span>Bash</span></p>
+          <div class="card-actions">
+            <a class="btn btn-small btn-primary" href="https://acw33firstliveproj.online" target="_blank" rel="noopener">Live site</a>
+            <a class="btn btn-small" href="https://github.com/ACW900/IS-373-TEST-CICD" target="_blank" rel="noopener">Code</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 3. Reverse proxy -->
+      <article class="card">
+        <div class="card-top tint-teal">
+          <span class="date">Fall 2026</span>
+          <h3>Linux Web Server &amp; Reverse Proxy</h3>
+          <p class="sub">Hosting and troubleshooting</p>
+        </div>
+        <div class="card-body">
+          <dl class="meta">
+            <dt>For</dt><dd>Running a site and its API on one server</dd>
+            <dt>Ships via</dt><dd>Docker containers behind a Caddy reverse proxy</dd>
+          </dl>
+          <ul>
+            <li>Hosted a static site and a backend API on separate subdomains, with the containers on a shared Docker network.</li>
+            <li>Diagnosed a 502 error from Caddy's logs (a "server misbehaving" DNS failure), traced it to a container missing from the Docker network, and fixed the configuration.</li>
+          </ul>
+          <p class="tags"><span>Linux</span><span>Caddy</span><span>Docker</span><span>DNS</span><span>Debugging</span></p>
+        </div>
+      </article>
+
+      <!-- 4. GameAtlas -->
+      <article class="card">
+        <div class="card-top tint-orange">
+          <span class="date">Mar – May 2026</span>
+          <h3>GameAtlas</h3>
+          <p class="sub">Game deals web app · full stack, group project</p>
+        </div>
+        <div class="card-body">
+          <dl class="meta">
+            <dt>For</dt><dd>Gamers hunting for the best price on a game</dd>
+            <dt>Ships via</dt><dd>Three Linux VMs: web, database and central logging</dd>
+          </dl>
+          <ul>
+            <li>Built the full stack: HTML/CSS/JavaScript frontend, Node.js/Express REST API and MongoDB database.</li>
+            <li>Integrated the CheapShark API for game search and deals, caching results in MongoDB for an hour to cut repeat calls.</li>
+            <li>Registration and login with single-use email verification links that expire after 1 hour, plus a per-user wishlist.</li>
+            <li>Structured logs sent to a central syslog server with Winston, with email addresses masked.</li>
+          </ul>
+          <p class="tags"><span>Node.js</span><span>Express</span><span>MongoDB</span><span>REST API</span><span>Linux</span></p>
+          <div class="card-actions">
+            <a class="btn btn-small" href="https://github.com/ACW900/IT340-Group-Project-" target="_blank" rel="noopener">Code</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 5. Bash scripts -->
+      <article class="card">
+        <div class="card-top tint-gray">
+          <span class="date">Feb – May 2026</span>
+          <h3>Linux Monitoring &amp; Timesheet Scripts</h3>
+          <p class="sub">Bash automation</p>
+        </div>
+        <div class="card-body">
+          <dl class="meta">
+            <dt>For</dt><dd>Keeping an eye on a Linux server without checking by hand</dd>
+            <dt>Ships via</dt><dd>cron on Linux</dd>
+          </dl>
+          <ul>
+            <li>Bash scripts scheduled with cron that log system uptime, memory and disk usage automatically.</li>
+            <li>An interactive Bash timesheet script that records work hours from the command line.</li>
+          </ul>
+          <p class="tags"><span>Bash</span><span>cron</span><span>Linux</span></p>
+          <div class="card-actions">
+            <a class="btn btn-small" href="https://github.com/ACW900/IT-340-Lab-5-Repo" target="_blank" rel="noopener">Code</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 6. IS117 site -->
+      <article class="card">
+        <div class="card-top tint-purple">
+          <span class="date">Apr 2025</span>
+          <h3>Personal Website</h3>
+          <p class="sub">My first multi-page site</p>
+        </div>
+        <div class="card-body">
+          <dl class="meta">
+            <dt>For</dt><dd>Introducing myself online</dd>
+            <dt>Ships via</dt><dd>GitHub Pages</dd>
+          </dl>
+          <ul>
+            <li>Wireframed the layout first, then built it with Bootstrap, HTML and CSS.</li>
+          </ul>
+          <p class="tags"><span>HTML</span><span>CSS</span><span>Bootstrap</span><span>Wireframing</span></p>
+          <div class="card-actions">
+            <a class="btn btn-small btn-primary" href="https://acw900.github.io/Is117_proj/" target="_blank" rel="noopener">Live site</a>
+            <a class="btn btn-small" href="https://github.com/ACW900/Is117_proj" target="_blank" rel="noopener">Code</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 7. Raspberry Pi -->
+      <article class="card">
+        <div class="card-top tint-red">
+          <span class="date">Fall 2024</span>
+          <h3>Raspberry Pi Wi-Fi Network</h3>
+          <p class="sub">Hardware and networking</p>
+        </div>
+        <div class="card-body">
+          <dl class="meta">
+            <dt>For</dt><dd>Learning how networks are put together</dd>
+            <dt>Ships via</dt><dd>A Raspberry Pi as its own access point</dd>
+          </dl>
+          <ul>
+            <li>Configured a Raspberry Pi to run its own Wi-Fi network, and found it could also connect to wired networks over Ethernet.</li>
+          </ul>
+          <p class="tags"><span>Raspberry Pi</span><span>Networking</span><span>Linux</span></p>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="in-progress">
+      <h3>In progress</h3>
+      <ul>
+        <li><strong>Save Point patch-notes assistant</strong> (Nov – Dec 2026): a retrieval-augmented question answering feature that answers from official game patch notes and cites its sources. <em>Planned, not built yet.</em></li>
+        <li><strong>Remote 3D printing</strong>: a Raspberry Pi 5 that sends jobs to a Monoprice mini 3D printer. <em>In progress.</em></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="about" class="wrap about">
+    <h2>About</h2>
+    <div class="about-grid">
+      <div>
+        <p>I'm an Information Technology student at NJIT (Web Applications concentration, minor in Information Systems), expected to graduate in Fall 2027 / Spring 2028.</p>
+        <p>I like building things people actually use and then making sure they keep working: tested, deployed automatically, and easy to roll back. I'm working toward AI automation and DevOps roles, and building my first AI-backed feature this semester.</p>
+        <p>Since 2022 I've worked as a cashier at ShopRite, where I serve 100+ customers per shift, troubleshoot the self-checkout registers, and train other cashiers to run them.</p>
+      </div>
+      <div class="skills">
+        <h3>Tools I've used in these projects</h3>
+        <p class="tags"><span>Docker</span><span>GitHub Actions</span><span>Caddy</span><span>Nginx</span><span>Linux</span><span>Bash</span><span>cron</span><span>SSH</span><span>Git</span><span>DigitalOcean</span><span>Python</span><span>FastAPI</span><span>Node.js</span><span>Express</span><span>MongoDB</span><span>SQLite</span><span>HTML/CSS</span><span>JavaScript</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="wrap contact">
+    <h2>Contact</h2>
+    <p>The best way to reach me or see more of my work is GitHub.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="https://github.com/ACW900" target="_blank" rel="noopener">github.com/ACW900</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>© 2026 Alex Wiemer · Built with plain HTML and CSS, hosted on GitHub Pages.</p>
+  </div>
+</footer>
+
+</body>
+</html>
